@@ -12,7 +12,7 @@ const refs = {
 }
  
 refs.startBtn.disabled = true;
-refs.inputDate.disabled = false;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -21,11 +21,11 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0].getTime() < Date.now()) {
       refs.startBtn.disabled = true;
-      refs.inputDate.disabled = false;
+      
       return Notiflix.Notify.failure('Please choose a date in the future');
     }
     refs.startBtn.disabled = false;
-    refs.inputDate.disabled = false;
+    
     //selectedDates[0].getTime();
     console.log(selectedDates[0]);
   },
@@ -51,15 +51,18 @@ class Timer {
       if (deltaTime < 0) {
         clearInterval(this.intervalId);
         refs.startBtn.disabled = false;
-        refs.inputDate.disabled = false;
-                return;
+         return;
         }
       const time = convertMs(deltaTime);
       this.onTick(time);
       
     }, 1000);
     refs.startBtn.disabled = true;
-    refs.inputDate.disabled = true;
+    
+  }
+  stop() {
+    clearInterval(this.intervalId);
+    this.isActive = false;
   }
 }
 
@@ -75,6 +78,7 @@ function updateClockFace({ days, hours, minutes, seconds }) {
 }
 
 refs.startBtn.addEventListener('click', timer.start.bind(timer));
+refs.inputDate.addEventListener('click', timer.stop.bind(timer));
 
 function pad(value) {
   return String(value).padStart(2, '0');
