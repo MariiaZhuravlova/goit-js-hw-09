@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,OACE,eAAgB,CAChB,YACF,CACA,OACE,cACF,CACA,OACE,iBACF","file":"style.24c5601a.css","sourceRoot":"../src","sourcesContent":[".timer {\n  margin-top: 20px;\n  display: flex;\n}\n.value {\n  font-size: 35px;\n}\n.field {\n  margin-right: 25px;\n}\n"]}
