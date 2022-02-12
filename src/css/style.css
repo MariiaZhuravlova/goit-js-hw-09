@@ -1,0 +1,10 @@
+.timer {
+  margin-top: 20px;
+  display: flex;
+}
+.value {
+  font-size: 35px;
+}
+.field {
+  margin-right: 25px;
+}
